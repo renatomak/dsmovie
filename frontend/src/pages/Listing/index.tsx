@@ -1,8 +1,9 @@
+import Pagination from 'components/Pagination';
 import React from 'react';
 
 const Listing = () => {
     return (
-        <h1>Listing</h1>
+        <Pagination />
     );
 }
 
