@@ -1,5 +1,5 @@
 import {ReactComponent as GithubIcon} from 'assets/img/github.svg';
-import './styles.css'
+import './style.css'
 
 const Header = () => {
   return (
