@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './style.css'
 
 const Form = () => {
@@ -35,7 +36,9 @@ const Form = () => {
             </button>
           </div>
         </form>
+        <Link to="/">
         <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
+        </Link>
       </div>
     </div>
   );
