@@ -1,4 +1,4 @@
-package com.dvsuperior.dsmovies.entities;
+package com.dvsuperior.dsmovie.entities;
 
 import lombok.Data;
 
