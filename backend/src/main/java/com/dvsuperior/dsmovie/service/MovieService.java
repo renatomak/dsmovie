@@ -18,7 +18,7 @@ import java.util.List;
 public class MovieService {
 
     @Autowired
-    private final MovieRepository movieRepository;
+    private MovieRepository movieRepository;
 
     @Transactional(readOnly = true)
     public Page<MovieDTO> findAll(Pageable pageable) {

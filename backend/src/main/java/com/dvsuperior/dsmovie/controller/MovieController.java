@@ -17,7 +17,7 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    private final MovieService movieService;
+    private MovieService movieService;
 
     @GetMapping
     public ResponseEntity<Page<MovieDTO>> findAll(Pageable pageable) {
@@ -28,9 +28,5 @@ public class MovieController {
     public ResponseEntity<MovieDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok(movieService.findById(id));
     }
-
-
-//    @PostMapping("/{id}")
-//    public ResponseEntity<MovieDTO> salveRate()
 
 }
