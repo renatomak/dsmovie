@@ -70,11 +70,6 @@ const FormCard = ({ movieId }: Props) => {
     console.log(email, score);
   }
 
-  const save = async () => {
-    const response = await axios.put(`${BASE_URL}/scores`, {...user})
-    console.log(response)
-  }
-
   useEffect(() => {
     getMovie();
   }, [movieId])
