@@ -72,6 +72,7 @@ const FormCard = ({ movieId }: Props) => {
 
   useEffect(() => {
     getMovie();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId])
 
   return (

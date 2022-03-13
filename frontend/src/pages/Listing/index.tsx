@@ -31,6 +31,7 @@ const Listing = () => {
 
   useEffect(() => {
     getMovies();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber]);
 
   return (
