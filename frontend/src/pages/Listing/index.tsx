@@ -46,6 +46,7 @@ const Listing = () => {
           ))}
         </div>
       </div>
+      <Pagination setPage={setPageNumber} data={page} />
     </>
   );
 };
