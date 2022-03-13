@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "utils/requests";
+import { validateEmail } from "utils/Validate";
 import "./style.css";
 
 type Props = {
@@ -18,6 +19,8 @@ const initialStateUser = {
   score: 1
 }
 const FormCard = ({ movieId }: Props) => {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState<User>(initialStateUser);
 
   const [movie, setMovie] = useState({
@@ -40,6 +43,33 @@ const FormCard = ({ movieId }: Props) => {
     console.log(user)
   }
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const email = (event.target as any).email.value;
+    const score = (event.target as any).score.value;
+
+    if(!validateEmail(email)) return
+
+
+    const config: AxiosRequestConfig = {
+      baseURL: BASE_URL,
+      method: 'PUT',
+      url: '/scores',
+      data: {
+        email: email,
+        movieId: movieId,
+        score: score
+      }
+    }
+
+    axios(config).then(response => {
+      navigate("/")
+    })
+
+
+    console.log(email, score);
+  }
+
   const save = async () => {
     const response = await axios.put(`${BASE_URL}/scores`, {...user})
     console.log(response)
@@ -58,7 +88,7 @@ const FormCard = ({ movieId }: Props) => {
       />
       <div className="dsmovie-card-bottom-container">
         <h3>{movie?.title}</h3>
-        <form className="dsmovie-form">
+        <form className="dsmovie-form" onSubmit={handleSubmit}>
           <div className="form-group dsmovie-form-group">
             <label htmlFor="email">Informe seu email</label>
             <input
@@ -81,7 +111,7 @@ const FormCard = ({ movieId }: Props) => {
             </select>
           </div>
           <div className="dsmovie-form-btn-container">
-            <button type="button" className="btn btn-primary dsmovie-btn" onClick={save}>
+            <button type="submit" className="btn btn-primary dsmovie-btn" >
               Salvar
             </button>
           </div>
