@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "utils/requests";
 import { validateEmail } from "utils/Validate";
-import ButtonSubmitAlert from "./ButtonSubmitAlert/Index";
+// import ButtonSubmitAlert from "./ButtonSubmitAlert/Index";
 import "./style.css";
 
 type Props = {
