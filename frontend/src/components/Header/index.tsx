@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="container">
         <div className="dsmovie-nav-content">
           <Link to="/">
-            <h1>RM Movies</h1>
+            <h1>RM Filmes</h1>
           </Link>
           <a
             href="https://github.com/renatomak"
